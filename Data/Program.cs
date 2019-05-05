@@ -179,7 +179,6 @@ public class RandomNumberstoCSV
             WriteCSV(val, "C:\\Users\\seano\\Desktop\\Test_Data\\"+DataNames[x]+".csv");
             Console.WriteLine(DataNames[x] + " Completed");
             x++;
-            Console.ReadLine();
         }
         
     }
