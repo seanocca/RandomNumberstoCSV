@@ -176,7 +176,7 @@ public class RandomNumberstoCSV
         int x = 0;
         foreach (List<int> val in Data())
         {
-            WriteCSV(val, "C:\\Users\\seano\\Desktop\\Test_Data\\"+DataNames[x]+".csv");
+            WriteCSV(val, "{INSERT YOUR PATH HERE}"+DataNames[x]+".csv");
             Console.WriteLine(DataNames[x] + " Completed");
             x++;
         }
