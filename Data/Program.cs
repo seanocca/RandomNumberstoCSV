@@ -1,35 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Reflection;
 
 public class RandomNumberstoCSV
 {
     static Random random = new Random();
 
     /// <summary>
-    /// Generates a random list of unique numbers
+    /// Generates a 
     /// </summary>
     /// <param name="count"> the size of the list </param>
     /// <param name="size"> the max random value </param>
     /// <returns> A list of random, unique integers </returns>
     public static List<int> GenerateRandom(int count)
     {
-        List<int> result = new List<int>();
+        HashSet<int> result = new HashSet<int>();
         while (result.Count < count)
         {
             result.Add(random.Next(count * 100));
         }
 
-        int i = result.Count;
-        while (i > 1)
-        {
-            i--;
-            int k = random.Next(i + 1);
-            int value = result[k];
-            result[k] = result[i];
-            result[i] = value;
-        }
-        return result;
+        List<int> output = result.ToList();
+        return output;
     }
 
     /// <summary>
@@ -161,16 +155,16 @@ public class RandomNumberstoCSV
     /// </summary>
     private static List<String> DataNames = new List<String>()
     {
-        "1k.csv","2k.csv","3k.csv","4k.csv","5k.csv","6k.csv","7k.csv","8k.csv","9k.csv","10k.csv",
-        "11k.csv","12k.csv","13k.csv","14k.csv","15k.csv","16k.csv","17k.csv","18k.csv","19k.csv","20k.csv",
-        "21k.csv","22k.csv","23k.csv","24k.csv","25k.csv","26k.csv","27k.csv","28k.csv","29k.csv","30k.csv",
-        "31k.csv","32k.csv","33k.csv","34k.csv","35k.csv","36k.csv","37k.csv","38k.csv","39k.csv","40k.csv",
-        "41k.csv","42k.csv","43k.csv","44k.csv","45k.csv","46k.csv","47k.csv","48k.csv","49k.csv","50k.csv",
-        "51k.csv","52k.csv","53k.csv","54k.csv","55k.csv","56k.csv","57k.csv","58k.csv","59k.csv","60k.csv",
-        "61k.csv","62k.csv","63k.csv","64k.csv","65k.csv","66k.csv","67k.csv","68k.csv","69k.csv","70k.csv",
-        "71k.csv","72k.csv","73k.csv","74k.csv","75k.csv","76k.csv","77k.csv","78k.csv","79k.csv","80k.csv",
-        "81k.csv","82k.csv","83k.csv","84k.csv","85k.csv","86k.csv","87k.csv","88k.csv","89k.csv","90k.csv",
-        "91k.csv","92k.csv","93k.csv","94k.csv","95k.csv","96k.csv","97k.csv","98k.csv","99k.csv","100k.csv",
+        "1k","2k","3k","4k","5k","6k","7k","8k","9k","10k",
+        "11k","12k","13k","14k","15k","16k","17k","18k","19k","20k",
+        "21k","22k","23k","24k","25k","26k","27k","28k","29k","30k",
+        "31k","32k","33k","34k","35k","36k","37k","38k","39k","40k",
+        "41k","42k","43k","44k","45k","46k","47k","48k","49k","50k",
+        "51k","52k","53k","54k","55k","56k","57k","58k","59k","60k",
+        "61k","62k","63k","64k","65k","66k","67k","68k","69k","70k",
+        "71k","72k","73k","74k","75k","76k","77k","78k","79k","80k",
+        "81k","82k","83k","84k","85k","86k","87k","88k","89k","90k",
+        "91k","92k","93k","94k","95k","96k","97k","98k","99k","100k",
     };
 
     /// <summary>
@@ -182,7 +176,7 @@ public class RandomNumberstoCSV
         int x = 0;
         foreach (List<int> val in Data())
         {
-            WriteCSV(val, "C:\\Users\\seano\\Desktop\\Test_Data" + DataNames[x]);
+            WriteCSV(val, "C:\\Users\\seano\\Desktop\\Test_Data\\"+DataNames[x]+".csv");
             Console.WriteLine(DataNames[x] + " Completed");
             x++;
             Console.ReadLine();
