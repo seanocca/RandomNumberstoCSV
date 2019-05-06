@@ -6,6 +6,7 @@ using System.Reflection;
 
 public class RandomNumberstoCSV
 {
+    private const string V = "k.csv";
     static Random random = new Random();
 
     /// <summary>
@@ -157,9 +158,13 @@ public class RandomNumberstoCSV
     public static void Main()
     {
         int x = 0;
+        string V = "k.csv";
+        string Folder = "C:\\Users\\seano\\Desktop\\Test_Data\\";
+        string PATH = null;
         foreach (List<int> val in Data())
         {
-            WriteCSV(val, "C:\\Users\\seano\\Desktop\\Test_Data\\"+(x+1)+"k.csv");
+            PATH = Folder + (x + 1) + V;
+            WriteCSV(val, PATH);
             Console.WriteLine(x + 1 + "k Completed");
             x++;
         }
