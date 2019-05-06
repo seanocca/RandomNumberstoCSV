@@ -10,11 +10,11 @@ public class RandomNumberstoCSV
     static Random random = new Random();
 
     /// <summary>
-    /// Generates a 
+    /// Generates a random list of unique integers (no duplicates)
     /// </summary>
     /// <param name="count"> the size of the list </param>
     /// <param name="size"> the max random value </param>
-    /// <returns> A list of random, unique integers </returns>
+    /// <returns> A list of integers </returns>
     public static List<int> GenerateRandom(int count)
     {
         HashSet<int> result = new HashSet<int>();
