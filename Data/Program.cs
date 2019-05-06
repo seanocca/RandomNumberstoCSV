@@ -151,23 +151,6 @@ public class RandomNumberstoCSV
 
 
     /// <summary>
-    /// All the CSV file names for every List in the Data variable
-    /// </summary>
-    private static List<String> DataNames = new List<String>()
-    {
-        "1k","2k","3k","4k","5k","6k","7k","8k","9k","10k",
-        "11k","12k","13k","14k","15k","16k","17k","18k","19k","20k",
-        "21k","22k","23k","24k","25k","26k","27k","28k","29k","30k",
-        "31k","32k","33k","34k","35k","36k","37k","38k","39k","40k",
-        "41k","42k","43k","44k","45k","46k","47k","48k","49k","50k",
-        "51k","52k","53k","54k","55k","56k","57k","58k","59k","60k",
-        "61k","62k","63k","64k","65k","66k","67k","68k","69k","70k",
-        "71k","72k","73k","74k","75k","76k","77k","78k","79k","80k",
-        "81k","82k","83k","84k","85k","86k","87k","88k","89k","90k",
-        "91k","92k","93k","94k","95k","96k","97k","98k","99k","100k",
-    };
-
-    /// <summary>
     /// Run the program in the console
     /// Writes the created lists to the CSV file in the first column
     /// </summary>
@@ -176,10 +159,9 @@ public class RandomNumberstoCSV
         int x = 0;
         foreach (List<int> val in Data())
         {
-            WriteCSV(val, "C:\\Users\\seano\\Desktop\\Test_Data\\"+DataNames[x]+".csv");
-            Console.WriteLine(DataNames[x] + " Completed");
+            WriteCSV(val, "C:\\Users\\seano\\Desktop\\Test_Data\\"+(x+1)+"k.csv");
+            Console.WriteLine(x + 1 + "k Completed");
             x++;
-            Console.ReadLine();
         }
         
     }
